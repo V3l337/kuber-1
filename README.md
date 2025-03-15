@@ -52,6 +52,11 @@
      microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
      ```
 
+   - Для подключения нужен токен. Для этого использовал такую команду.
+     ```bash
+     microk8s kubectl -n kube-system describe secret $(microk8s kubectl -n kube-system get secret | grep default-token | awk '{print $1}')
+     ```     
+
 ## Скриншоты
 
 1. Скриншот вывода команды `kubectl get nodes`.
